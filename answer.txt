@@ -1,0 +1,15 @@
+1.If you only had 200 labeled replies, how would you improve the model without collecting thousands more?
+
+Since I’m using traditional models (Logistic Regression / LightGBM), I would apply text preprocessing and feature engineering techniques like TF-IDF with n-grams, removing stopwords, and using domain-specific vocabularies. I could also apply simple data augmentation (synonym replacement, paraphrasing) and try semi-supervised learning (pseudo-labeling) to make the most of unlabeled data without needing thousands of new labels.
+
+
+
+2.How would you ensure your reply classifier doesn’t produce biased or unsafe outputs in production?
+
+I would carefully clean the training data to remove personal or sensitive content before training, and evaluate the model on diverse examples to check for bias. In production, I’d log predictions, periodically retrain with fresh data, and add a simple feedback mechanism in the Streamlit app so users can report misclassifications or unsafe outputs.
+
+
+
+3.Suppose you want to generate personalized cold email openers using an LLM. What prompt design strategies would you use to keep outputs relevant and non-generic?
+
+I would write clear, structured prompts with only the necessary context (recipient’s role, industry, and prior interaction), avoid including sensitive data, and give few-shot examples of the desired style. I’d also restrict output length and tone to keep it specific, relevant, and consistent with the brand.
